@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <title>Delicious</title>
+
+    <style>
+      :root {
+        --button-color-light: #eee;
+        --button-color-lighter: #fff;
+        --button-color-dark: #bbb;
+
+        --suggested-color-light: #ade;
+        --suggested-color-lighter: #bef;
+        --suggested-color-dark: #58e;
+
+        --danger-color-light: #f66;
+        --danger-color-lighter: #f99;
+        --danger-color-dark: #f00;
+
+        --highlight: rgba(255, 255, 255, 0.4);
+        --shadow: rgba(0, 0, 0, 0.25);
+        --stroke: rgba(0, 0, 0, 0.5);
+
+        --white: #eee;
+        --black: #333;
+
+        --foreground-color: var(--black);
+      }
+
+      * {
+        box-sizing: border-box !important;
+      }
+
+      body {
+        background: var(--white);
+
+        color: var(--black);
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.25em 1em;
+
+        color: var(--foreground-color);
+
+        cursor: default;
+        transition: all 250ms ease; /* Animate on exit; doesn't work with var */
+
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      .button:hover {
+        transition: none; /* Instant on enter */
+      }
+
+      .button.danger {
+        --foreground-color: var(--danger-color-dark);
+      }
+
+      .button.suggested {
+        --foreground-color: var(--suggested-color-dark);
+      }
+
+      .lickable {
+        --foreground-color: var(--black);
+
+        background: linear-gradient(
+          var(--button-color-light),
+          var(--button-color-dark)
+        );
+
+        border-radius: 0.1875em;
+
+        box-shadow:
+          0px 0px 0px 0.0625em var(--highlight) inset,
+          0px 0px 0px 0.0625em var(--stroke);
+
+        text-shadow: 0px 0.0625em var(--highlight);
+      }
+
+      .lickable:hover {
+        background: linear-gradient(
+          var(--button-color-lighter),
+          var(--button-color-dark)
+        );
+      }
+
+      .lickable:active {
+        background: linear-gradient(
+          var(--button-color-dark),
+          var(--button-color-light)
+        );
+      }
+
+      .lickable.danger {
+        --button-color-light: var(--danger-color-light);
+        --button-color-lighter: var(--danger-color-lighter);
+        --button-color-dark: var(--danger-color-dark);
+
+        --foreground-color: var(--black);
+      }
+
+      .lickable.suggested {
+        --button-color-light: var(--suggested-color-light);
+        --button-color-lighter: var(--suggested-color-lighter);
+        --button-color-dark: var(--suggested-color-dark);
+
+        --foreground-color: var(--black);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Flat</h1>
+    <div class="button flat">Button</div>
+    <div class="button flat danger">Danger</div>
+    <div class="button flat suggested">Suggested</div>
+
+    <h1>Lickable</h1>
+    <div class="button lickable">Button</div>
+    <div class="button lickable danger">Danger</div>
+    <div class="button lickable suggested">Suggested</div>
+  </body>
+</html>
