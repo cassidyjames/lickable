@@ -1,10 +1,10 @@
 <html>
   <head>
-    <title>Delicious</title>
+    <title>Lickable</title>
 
     <style>
       :root {
-        --button-color-light: #eee;
+        --button-color-light: #ddd;
         --button-color-lighter: #fff;
         --button-color-dark: #bbb;
 
@@ -45,6 +45,8 @@
 
         color: var(--foreground-color);
 
+        border-radius: 0.1875em;
+
         cursor: default;
         transition: all 250ms ease; /* Animate on exit; doesn't work with var */
 
@@ -59,10 +61,36 @@
 
       .button.danger {
         --foreground-color: var(--danger-color-dark);
+        --button-color-light: var(--danger-color-light);
+        --button-color-lighter: var(--danger-color-lighter);
+        --button-color-dark: var(--danger-color-dark);
       }
 
       .button.suggested {
         --foreground-color: var(--suggested-color-dark);
+        --button-color-light: var(--suggested-color-light);
+        --button-color-lighter: var(--suggested-color-lighter);
+        --button-color-dark: var(--suggested-color-dark);
+      }
+
+      .outline {
+        border: 0.0625em solid;
+      }
+
+      .flat {
+        --foreground-color: var(--black);
+
+        background-color: var(--button-color-light);
+
+        border: 0.0625em solid var(--button-color-dark);
+      }
+
+      .flat.danger {
+        --foreground-color: var(--black);
+      }
+
+      .flat.suggested {
+        --foreground-color: var(--black);
       }
 
       .lickable {
@@ -72,8 +100,6 @@
           var(--button-color-light),
           var(--button-color-dark)
         );
-
-        border-radius: 0.1875em;
 
         box-shadow:
           0px 0px 0px 0.0625em var(--highlight) inset,
@@ -97,32 +123,34 @@
       }
 
       .lickable.danger {
-        --button-color-light: var(--danger-color-light);
-        --button-color-lighter: var(--danger-color-lighter);
-        --button-color-dark: var(--danger-color-dark);
-
         --foreground-color: var(--black);
       }
 
       .lickable.suggested {
-        --button-color-light: var(--suggested-color-light);
-        --button-color-lighter: var(--suggested-color-lighter);
-        --button-color-dark: var(--suggested-color-dark);
-
         --foreground-color: var(--black);
       }
     </style>
   </head>
 
   <body>
+    <h1>Text</h1>
+    <div class="button">Button</div>
+    <div class="button suggested">Suggested</div>
+    <div class="button danger">Danger</div>
+
+    <h1>Outline</h1>
+    <div class="button outline">Button</div>
+    <div class="button outline suggested">Suggested</div>
+    <div class="button outline danger">Danger</div>
+
     <h1>Flat</h1>
     <div class="button flat">Button</div>
-    <div class="button flat danger">Danger</div>
     <div class="button flat suggested">Suggested</div>
+    <div class="button flat danger">Danger</div>
 
     <h1>Lickable</h1>
     <div class="button lickable">Button</div>
-    <div class="button lickable danger">Danger</div>
     <div class="button lickable suggested">Suggested</div>
+    <div class="button lickable danger">Danger</div>
   </body>
 </html>
